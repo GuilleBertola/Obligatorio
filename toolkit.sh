@@ -3,6 +3,9 @@
 ruta=""
 
 opcion3(){
+	#find / -type f | du | sort -nr | head parece correcto, solo que solo funca con los archivos de la carpeta,
+# mismo problema que solucion anterior, vadria la pena probar de vuelta con lo anterio
+
 	df -h
 	echo "Directorio mas pesado:"
 	du > auxiliar1.txt #recordar que no esta humanizado
