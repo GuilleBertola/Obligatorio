@@ -4,7 +4,7 @@ ruta=""
 
 opcion3(){
 #Muestra los permission denied
-
+	echo "Espacio en discos:"
 	df -h
 	find / -type f -printf "%s %f\n" > auxiliar1.txt
 	sort -nr auxiliar1.txt > auxiliar2.txt
@@ -17,34 +17,37 @@ opcion3(){
 opcion5(){
 	whoami
 	uptime -p
-	date #muestra hora UTC
+	date
 }
 
-#opcion7(){
-#	echo "Ingrese ruta"
-#	read ruta
+opcion7(){
+	echo "Ingrese ruta"
+	read ruta
+}
 
-
-#opcion1(){
-#	if[ $ruta -eq "" ]; do
-#	read ruta2
-#	ls ruta2
+opcion1(){
+	if [ $ruta -n ]; then
+	echo "Ingrese una ruta"
+	read ruta2
+	find "$ruta2" -maxdepth 1 -type f | wc -l #verificar que devuelve el numero correcto
+	fi
+}
 
 
 
 opcion=0
 while [ $opcion -ne 8 ]; do
-	echo "1) "
+	echo "1) Opcion 1 "
 	echo "2) "
-	echo "3) Estado de disco duro "
+	echo "3) Opcion 3 "
 	echo "4) "
-	echo "5) "
+	echo "5) Opcion 5 "
 	echo "6) "
-	echo "7) "
+	echo "7) Opcion 7 "
 	echo "8) Salir"
 	read opcion
 	if [ $opcion -eq 1 ] ;then
-		echo "1"
+		opcion1
 	elif [ $opcion -eq 2 ] ;then
 		echo "2"
 	elif [ $opcion -eq 3 ] ;then
@@ -56,7 +59,7 @@ while [ $opcion -ne 8 ]; do
 	elif [ $opcion -eq 6 ] ;then
 		echo "6"
         elif [ $opcion -eq 7 ] ;then
-		echo "7"
+		opcion7
 	elif [ $opcion -eq 8 ] ;then
                 echo ""
 	else
