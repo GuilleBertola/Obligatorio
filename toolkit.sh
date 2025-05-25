@@ -3,14 +3,13 @@
 ruta=""
 
 opcion3(){
-	#find / -type f | du | sort -nr | head parece correcto, solo que solo funca con los archivos de la carpeta,
-# mismo problema que solucion anterior, vadria la pena probar de vuelta con lo anterio
+#Muestra los permission denied
 
 	df -h
-	echo "Directorio mas pesado:"
-	du > auxiliar1.txt #recordar que no esta humanizado
+	find / -type f -printf "%s %f\n" > auxiliar1.txt
 	sort -nr auxiliar1.txt > auxiliar2.txt
 	head -n2 auxiliar2.txt > auxiliar1.txt
+        echo "Directorio mas pesado:"
 	tail -n1 auxiliar1.txt
 	rm auxiliar1.txt auxiliar2.txt
 }
