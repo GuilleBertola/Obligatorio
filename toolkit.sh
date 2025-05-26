@@ -9,7 +9,7 @@ opcion3(){
 	find / -type f -printf "%s %f\n" > auxiliar1.txt
 	sort -nr auxiliar1.txt > auxiliar2.txt
 	head -n2 auxiliar2.txt > auxiliar1.txt
-        echo "Directorio mas pesado:"
+        echo "Archivo mas pesado:"
 	tail -n1 auxiliar1.txt
 	rm auxiliar1.txt auxiliar2.txt
 }
@@ -29,8 +29,37 @@ opcion1(){
 	if [ $ruta -n ]; then
 	echo "Ingrese una ruta"
 	read ruta2
-	find "$ruta2" -maxdepth 1 -type f | wc -l #verificar que devuelve el numero correcto
-	fi
+	find "$ruta2" -maxdepth 1 -type f | wc -l #verificar que devuelve el numero correct
+	find "$ruta2" -mindepth 2 -type f | wc -l
+	find "$ruta2" -type f -printf "%s %f\n" > auxiliar1.txt
+        sort -nr auxiliar1.txt > auxiliar2.txt
+        head -n2 auxiliar2.txt > auxiliar1.txt
+        echo "Archivo mas pesado"
+        tail -n1 auxiliar1.txt
+        rm auxiliar1.txt auxiliar2.txt
+	find "$ruta2" -type f -printf "%s %f\n" > auxiliar1.txt
+        sort -n auxiliar1.txt > auxiliar2.txt
+        head -n2 auxiliar2.txt > auxiliar1.txt
+        echo "Archivo mas ligero"
+        tail -n1 auxiliar1.txt
+        rm auxiliar1.txt auxiliar2.txt
+
+	elif
+	find "$ruta" -maxdepth 1 -type f | wc -l
+	find "$ruta" -mindepth 1 -type f | wc -l
+	find "$ruta" -type f -printf "%s %f\n" > auxiliar1.txt
+        sort -nr auxiliar1.txt > auxiliar2.txt
+        head -n2 auxiliar2.txt > auxiliar1.txt
+        echo "Archivo mas pesado"
+        tail -n1 auxiliar1.txt
+        rm auxiliar1.txt auxiliar2.txt
+	find "$ruta" -type f -printf "%s %f\n" > auxiliar1.txt
+        sort -n auxiliar1.txt > auxiliar2.txt
+        head -n2 auxiliar2.txt > auxiliar1.txt
+        echo "Archivo mas ligero"
+        tail -n1 auxiliar1.txt
+        rm auxiliar1.txt auxiliar2.txt
+
 }
 
 
