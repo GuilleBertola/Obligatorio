@@ -59,7 +59,7 @@ opcion1(){
         echo "Archivo mas ligero"
         tail -n1 auxiliar1.txt
         rm auxiliar1.txt auxiliar2.txt
-
+	fi
 }
 
 
